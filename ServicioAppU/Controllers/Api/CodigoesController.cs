@@ -22,9 +22,10 @@ namespace ServicioAppU.Controllers.Api
 
         // GET: api/Codigoes
         [HttpGet]
-        public IEnumerable<Codigo> GetCodigo()
+        public async Task<IEnumerable<Codigo>> GetCodigoAsync()
         {
-            return _context.Codigo;
+            var lista = await _context.Codigo.ToListAsync();
+            return lista;
         }
 
         // GET: api/Codigoes/5
